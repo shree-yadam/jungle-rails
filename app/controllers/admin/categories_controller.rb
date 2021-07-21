@@ -1,6 +1,4 @@
-class Admin::CategoriesController < ApplicationController
-
-  before_filter :authenticate
+class Admin::CategoriesController < Admin::AuthController
 
   def index
     @categories = Category.all
@@ -38,14 +36,6 @@ class Admin::CategoriesController < ApplicationController
     params.require(:category).permit(
       :name
     )
-  end
-
-  protected
-
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == ENV["USERNAME"] && password == ENV["PASSWORD"]
-    end
   end
 
 end

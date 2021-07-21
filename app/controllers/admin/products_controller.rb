@@ -1,6 +1,4 @@
-class Admin::ProductsController < ApplicationController
-
-  before_filter :authenticate
+class Admin::ProductsController < Admin::AuthController
 
   def index
     @products = Product.order(id: :desc).all
@@ -37,19 +35,6 @@ class Admin::ProductsController < ApplicationController
       :image,
       :price
     )
-  end
-
-  protected
-
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == ENV["USERNAME"] && password == ENV["PASSWORD"]
-      # if username == ENV["USERNAME"] && password == ENV["PASSWORD"]
-      #   true
-      # else
-      #   redirect_to cart_path and return false
-      # end
-    end
   end
 
 end
