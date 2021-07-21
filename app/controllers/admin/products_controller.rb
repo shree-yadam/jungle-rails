@@ -2,9 +2,6 @@ class Admin::ProductsController < ApplicationController
 
   before_filter :authenticate
 
-  USERNAME = "Jungle"
-  PASSWORD = "book"
-
   def index
     @products = Product.order(id: :desc).all
   end
@@ -46,7 +43,7 @@ class Admin::ProductsController < ApplicationController
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      username == USERNAME && password == PASSWORD
+      username == ENV["USERNAME"] && password == ENV["PASSWORD"]
     end
   end
 
