@@ -44,6 +44,11 @@ class Admin::ProductsController < ApplicationController
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
       username == ENV["USERNAME"] && password == ENV["PASSWORD"]
+      # if username == ENV["USERNAME"] && password == ENV["PASSWORD"]
+      #   true
+      # else
+      #   redirect_to cart_path and return false
+      # end
     end
   end
 
