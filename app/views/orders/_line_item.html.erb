@@ -9,12 +9,12 @@
     <p><%= product.description %></p>
   </td>
   <td>
-    <%= humanized_money_with_symbol item_price_cents/100 %>
+    <%= humanized_money_with_symbol item_price_cents / 100.0 %>
   </td>
   <td>
     <%= quantity %>
   </td>
   <td>
-    <%= humanized_money_with_symbol total_price_cents/100 %>
+    <%= humanized_money_with_symbol total_price_cents / 100.0 %>
   </td>
 </tr>
