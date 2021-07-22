@@ -6,13 +6,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to [:root]
-    else
-      redirect_to new_user_path
+    user = User.find_by_email params[:user][:email]
+    if !user
+      if @user.save
+        session[:user_id] = @user.id
+        return redirect_to [:root]
+      else
+        return redirect_to new_user_path
+      end
     end
+    redirect_to new_user_path
   end
 
   private
