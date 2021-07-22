@@ -1,5 +1,7 @@
 class Admin::ProductsController < Admin::AuthController
 
+  before_filter :authorize_user
+
   def index
     @products = Product.order(id: :desc).all
   end

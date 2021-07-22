@@ -1,5 +1,7 @@
 class Admin::CategoriesController < Admin::AuthController
 
+  before_filter :authorize_user
+
   def index
     @categories = Category.all
     puts @categories.inspect
