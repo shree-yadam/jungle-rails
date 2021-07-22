@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    #check if email already registered. Otherwise save
     user = User.find_by_email params[:user][:email]
     if !user
       if @user.save
