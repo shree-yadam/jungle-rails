@@ -5,18 +5,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    #check if email already registered. Otherwise save
-    user = User.find_by_email params[:user][:email]
-    if !user
-      if @user.save
+    @user.email = @user.email.downcase
+    if @user.save
         session[:user_id] = @user.id
         return redirect_to [:root]
-      else
-        flash.alert = "Server Error: could not register user!"
-        return redirect_to new_user_path
-      end
     end
-    flash.alert = "Email already registered. Please login or register with a different email!"
+    flash.alert = @user.errors.full_messages.first
     redirect_to new_user_path
   end
 
