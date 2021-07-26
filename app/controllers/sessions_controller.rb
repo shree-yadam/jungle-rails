@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to [:root]
     else
-    # If user's login doesn't work, send them back to the login form.
+      # If user's login doesn't work, send them back to the login form.
+      flash.alert = "Invalid email or password!"
       redirect_to new_session_path
     end
   end

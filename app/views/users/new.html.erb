@@ -1,5 +1,14 @@
 <h1>Sign Up</h1>
 
+<% flash.each do |type, msg| %>
+  <div class="alert alert-danger alert-dismissible">
+    <%= msg %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
 <%= form_for :user, url:'/users'  do |form| %>
 
   <div class="form-group">
