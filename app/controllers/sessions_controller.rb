@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    puts params.inspect
     @user = User.authenticate_with_credentials(params[:session][:email], params[:session][:password])
     if @user
       # If user authenticated then set session id to create logged in status
