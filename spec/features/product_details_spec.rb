@@ -22,6 +22,9 @@ RSpec.feature "Visitor navigates from home page to the product detail page by cl
     # ACT
     visit root_path
 
+    # DEBUG / VERIFY
+    save_screenshot
+
     first('.product img').click
     expect(page).to have_css 'article.product-detail', count: 1
     within('header'){
