@@ -5,7 +5,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.email = @user.email.downcase
+    @user.email = @user.email.strip
+    @user.first_name = @user.first_name.strip
+    @user.last_name = @user.last_name.strip
     if @user.save
         session[:user_id] = @user.id
         return redirect_to [:root]

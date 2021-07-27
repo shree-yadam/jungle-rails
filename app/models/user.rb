@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   # Class method to authenticate credentials entered by user for login
   def self.authenticate_with_credentials(email, password)
-    user = self.find_by_email email.strip.downcase
+    user = self.where('lower(email) = lower(?)', email.strip).first
     if user && user.authenticate(password)
       user
     else
