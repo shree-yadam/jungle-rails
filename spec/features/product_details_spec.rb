@@ -25,7 +25,10 @@ RSpec.feature "Visitor navigates from home page to the product detail page by cl
     # DEBUG / VERIFY
     save_screenshot
 
+    #click on image of first product to open it's details
     first('.product img').click
+
+    #test if details page for that particular product was opened
     expect(page).to have_css 'article.product-detail', count: 1
     within('header'){
       expect(page).to have_text @category.name
