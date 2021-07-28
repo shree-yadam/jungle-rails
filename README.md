@@ -2,6 +2,38 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+## Final Product
+
+###### Main Page (no user logged in)
+!["Main Page"](docs/HomePage_no_login.png)
+
+###### Register Page
+!["Register Page"](docs/register.png)
+
+###### Main Page (user logged in)
+!["Logged in User Home Page"](docs/HomePage_logged_in.png)
+
+###### Login page
+!["Login Page"](docs/login_page.png)
+
+###### About Us
+!["About Us"](docs/About_us.png)
+
+###### Cart
+!["Cart"](docs/cart.png)
+
+###### Order Summary
+!["Order Summary"](docs/order.png)
+
+###### Admin Login required for accessing Admin Dashboard, Products or Categories
+!["Admin Login"](docs/Admin_login.png)
+
+###### Admin Dashboard
+!["Admin Dashboard"](docs/Admin_Dashboard.png)
+
+###### Admin Categories
+!["Admin Categories"](docs/Admin_categories.png)
+
 ## Additional Steps for Apple M1 Machines
 
 1. Make sure that you are runnning Ruby 2.6.6 (`ruby -v`)
