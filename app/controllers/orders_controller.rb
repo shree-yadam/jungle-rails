@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
+      redirect_to order
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
@@ -53,6 +53,10 @@ class OrdersController < ApplicationController
         item_price: product.price,
         total_price: product.price * quantity
       )
+      # Update Product model for change in quantity
+      ordered_product = Product.find product.id
+      ordered_product.quantity -= quantity
+      ordered_product.save!
     end
     order.save!
     order
